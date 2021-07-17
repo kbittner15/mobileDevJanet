@@ -1,0 +1,33 @@
+{
+  "name": "@cliqd/janet",
+  "version": "1.0.0",
+  "description": "janet redux-thunk",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist --copy-files",
+    "prepublish": "yarn build",
+    "build:docs": "dociql -d dociql.yml"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-notification-system-redux": "^2.0.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "latest",
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "dociql": "^1.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1",
+    "import-lazy": "^4.0.0",
+    "phone": "^2.4.17",
+    "validator": "^13.6.0"
+  }
+}
