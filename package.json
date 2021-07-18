@@ -25,9 +25,12 @@
     "dociql": "^1.1.4"
   },
   "dependencies": {
+    "commander": "^8.0.0",
     "date-fns": "^2.16.1",
     "import-lazy": "^4.0.0",
     "phone": "^2.4.17",
+    "semver": "^7.3.5",
+    "slash": "^4.0.0",
     "validator": "^13.6.0"
   }
 }
