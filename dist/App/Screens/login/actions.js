@@ -1,3 +1,4 @@
+import { getFirestore } from "redux-firestore";
 import { SET_EMAIL, SET_PASSWORD } from './types';
 export const SetEmail = email => ({
   type: SET_EMAIL,
@@ -20,10 +21,16 @@ export const LogUserIn = () => async (dispatch, getState) => {
     console.log({
       loginUser: email,
       loginUserPassword: password
-    }); // add method to conect to database here 
+    }); //initialize database
 
-    console.log("success");
+    const firestore = getFirestore(); //query database 
+
+    const querySnapshot = await firestore.get({
+      collection: "cities"
+    }); //console log result 
+
+    console.log(querySnapshot);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };

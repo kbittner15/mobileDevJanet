@@ -1,4 +1,5 @@
-import database from '../../../firebase/firebase'
+
+import { getFirestore } from "redux-firestore"
 
 import {
   SET_EMAIL,
@@ -16,42 +17,27 @@ export const SetPassword = password => ({
 
 export const LogUserIn = () => async (dispatch, getState) => {
   try {
+
     const {
       loginReducer: { email },
       loginReducer: { password }
     } = getState()
   
-  let firestoreRef = database.collection('Users').doc('UserData')
-  let unsubscribe = this.firestoreRef.onSnapshot(this.getCollection)
-
-  let query = []
-  let result = []
-  querySnapshot.forEach((res) => {
-      console.log(res.data())
-    const { firstName, lastName, age, img} = res.data();
-    query.push({
-      key: res.key,
-      res,
-      firstName,
-      lastName,
-      age,
-      img,
-    })
-  })
-  result = {firstName}
-
   
-    
-
     console.log({loginUser: email,
     loginUserPassword: password})
 
-  console.log({result})
+    //initialize database
+    const firestore = getFirestore()
+    //query database 
+    const querySnapshot = await firestore.get({
+      collection: "cities",
+    });
+    //console log result 
+    console.log(querySnapshot)
 
-// add method to conect to database here 
-
-console.log("success")
 } catch (error) {
-  console.log("error")
+  console.log(error)
   }
 }
+
