@@ -17,10 +17,7 @@ export const LogUserIn = () => async (dispatch, getState) => {
         password
       }
     } = getState();
-    console.log({
-      loginUser: email,
-      loginUserPassword: password
-    }); // add method to conect to database here 
+   
 
     console.log("success");
   } catch (error) {
