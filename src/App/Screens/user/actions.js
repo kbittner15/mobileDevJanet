@@ -15,8 +15,6 @@ export const LogUserIn = () => async (dispatch, getState) => {
       loginReducer: { email },
       loginReducer: { password }
     } = getState()
-  
-
 
     //initialize database
     const firestore = getFirestore()
@@ -24,8 +22,8 @@ export const LogUserIn = () => async (dispatch, getState) => {
     //query database 
     const querySnapshot = await firestore.get({
       collection: "Users",
-      where: [['email', '==', email]],
-      where: [['password', '==', password]]
+      where: [['user.email', '==', email]],
+      where: [['user.password', '==', password]]
     });
 
     querySnapshot.forEach(doc => {
@@ -36,4 +34,38 @@ export const LogUserIn = () => async (dispatch, getState) => {
 } catch (error) {
   console.log(error)
   }
+}
+
+export const SignUserIn = () => async (dispatch, getState) => {
+  try {
+
+    const {
+      signupReducer: { newUser }
+    } = getState()
+
+    console.log({
+       data: newUser, type: typeof newUser
+    })
+    
+    let user = newUser
+    //initialize database
+    const firestore = getFirestore()
+
+    //query database 
+    const querySnapshot = await firestore.collection("Users").add({  
+      user
+    });
+
+    dispatch(setCurrentUser(user))
+
+} catch (error) {
+  console.log(error)
+  }
+}
+
+export const GetCurrentUser =  () => async (dispatch, getState) => {
+  const {
+    userReducer: { currentUser }
+  } = getState()
+  return currentUser
 }
