@@ -63,7 +63,9 @@ export default ((state = initialState, {
       {
         return { ...state,
           newUser: { ...state.newUser,
-            userHeight: payload
+            profileData: { ...state.newUser.profileData,
+              userHeight: payload
+            }
           }
         };
       }
@@ -72,7 +74,9 @@ export default ((state = initialState, {
       {
         return { ...state,
           newUser: { ...state.newUser,
-            education: payload
+            profileData: { ...state.newUser.profileData,
+              education: payload
+            }
           }
         };
       }
@@ -81,7 +85,9 @@ export default ((state = initialState, {
       {
         return { ...state,
           newUser: { ...state.newUser,
-            religion: payload
+            profileData: { ...state.newUser.profileData,
+              religion: payload
+            }
           }
         };
       }

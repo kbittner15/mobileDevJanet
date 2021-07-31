@@ -1,3 +1,4 @@
 export default {
-  currentUser: null
+  currentUser: null,
+  peopleCards: null
 };

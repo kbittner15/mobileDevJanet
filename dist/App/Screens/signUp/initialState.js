@@ -6,9 +6,11 @@ export default {
     phoneNumber: null,
     email: null,
     sex: null,
-    userHeight: null,
-    education: null,
-    religion: null,
-    password: null
+    password: null,
+    profileData: {
+      userHeight: null,
+      education: null,
+      religion: null
+    }
   }
 };

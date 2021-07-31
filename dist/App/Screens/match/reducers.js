@@ -1,21 +1,16 @@
 import initialState from './initialState';
-import { SET_CURRENT_USER, SET_PEOPLE_CARDS } from './types';
+import { MATCH_ID, PEOPLE } from './types';
 export default ((state = initialState, {
   type,
   payload
 }) => {
   switch (type) {
-    case SET_CURRENT_USER:
+    case MATCH_ID:
       {
         return { ...state,
-          currentUser: payload
-        };
-      }
-
-    case SET_PEOPLE_CARDS:
-      {
-        return { ...state,
-          peopleCards: payload
+          match: { ...state.match,
+            matchId: payload
+          }
         };
       }
 

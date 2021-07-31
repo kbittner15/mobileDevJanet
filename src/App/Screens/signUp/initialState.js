@@ -11,6 +11,8 @@ export default {
       userHeight: null,
       education: null,
       religion: null,
+      likes: [],
+      dislikes: [],
     }
   }
 }

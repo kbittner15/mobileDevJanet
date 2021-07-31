@@ -1,9 +1,21 @@
 import { getFirestore } from "redux-firestore";
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER, SET_PEOPLE_CARDS } from './types';
 export const setCurrentUser = currentUser => ({
   type: SET_CURRENT_USER,
   payload: currentUser
 });
+export const SetPeopleCard = peopleCards => ({
+  type: SET_PEOPLE_CARDS,
+  payload: peopleCards
+});
+export const GetCurrentUser = () => async (dispatch, getState) => {
+  const {
+    userReducer: {
+      currentUser
+    }
+  } = getState();
+  return currentUser;
+};
 export const LogUserIn = () => async (dispatch, getState) => {
   try {
     const {
@@ -30,7 +42,7 @@ export const LogUserIn = () => async (dispatch, getState) => {
     console.log(error);
   }
 };
-export const SignUserIn = () => async (dispatch, getState) => {
+export const SignUserUp = () => async (dispatch, getState) => {
   try {
     const {
       signupReducer: {
@@ -53,11 +65,18 @@ export const SignUserIn = () => async (dispatch, getState) => {
     console.log(error);
   }
 };
-export const GetCurrentUser = () => async (dispatch, getState) => {
-  const {
-    userReducer: {
-      currentUser
-    }
-  } = getState();
-  return currentUser;
+export const GetUserCards = () => async (dispatch, getState) => {
+  try {
+    const firestore = getFirestore();
+    const querySnapshot = await firestore.get({
+      collection: "Users",
+      limit: 6
+    });
+    querySnapshot.forEach(doc => {
+      let data = doc.data();
+      dispatch(SetPeopleCard(data));
+    });
+  } catch (e) {
+    console.log(e, "problem getting user cards");
+  }
 };

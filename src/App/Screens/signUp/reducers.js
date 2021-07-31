@@ -10,7 +10,10 @@ import {
     SET_EDUCATION,
     SET_RELIGION,
     SET_PASSWORD,
+    SET_LIKES,
+    SET_DISLIKES,
 } from './types'
+
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
@@ -95,6 +98,28 @@ export default (state = initialState, { type, payload }) => {
         }
       }
     } 
+    case SET_LIKES: {
+      return { ...state, 
+        newUser:{
+          ...state.newUser,
+          profileData: {
+              ...state.newUser.profileData,
+        likes: payload 
+          }
+      }
+    }
+  } 
+  case SET_DISLIKES: {
+    return { ...state, 
+      newUser:{
+        ...state.newUser,
+        profileData: {
+            ...state.newUser.profileData,
+      dislikes: payload 
+        }
+    }
+  }
+} 
     case SET_PASSWORD: {
         return { ...state,
         newUser:{

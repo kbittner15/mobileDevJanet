@@ -11,6 +11,8 @@ import {
     SET_RELIGION,
     SET_ETHNICITY,
     SET_PASSWORD,
+    SET_LIKES,
+    SET_DISLIKES,
 } from './types'
 
 export const SetFirst = firstName => ({
@@ -52,4 +54,14 @@ export const SetFirst = firstName => ({
   export const SetPassword = password =>({
     type: SET_PASSWORD,
     payload: password,
+  })
+
+  export const SetLikes = likes => ({
+    type: SET_LIKES,
+    payload: likes
+  })
+
+  export const SetDislikes = dislikes => ({
+    type: SET_DISLIKES,
+    payload: dislikes
   })
