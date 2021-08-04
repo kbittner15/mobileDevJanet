@@ -1,5 +1,5 @@
 import { getFirestore } from "redux-firestore";
-import { SET_FIRST_NAME, SET_LAST_NAME, SET_AGE, SET_PHONE, SET_EMAIL, SET_SEX, SET_USER_HEIGHT, SET_EDUCATION, SET_RELIGION, SET_ETHNICITY, SET_PASSWORD } from './types';
+import { SET_FIRST_NAME, SET_LAST_NAME, SET_AGE, SET_PHONE, SET_EMAIL, SET_SEX, SET_USER_HEIGHT, SET_EDUCATION, SET_RELIGION, SET_ETHNICITY, SET_PASSWORD, SET_LIKES, SET_DISLIKES } from './types';
 export const SetFirst = firstName => ({
   type: SET_FIRST_NAME,
   payload: firstName
@@ -39,4 +39,12 @@ export const SetReligion = religion => ({
 export const SetPassword = password => ({
   type: SET_PASSWORD,
   payload: password
+});
+export const SetLikes = likes => ({
+  type: SET_LIKES,
+  payload: likes
+});
+export const SetDislikes = dislikes => ({
+  type: SET_DISLIKES,
+  payload: dislikes
 });

@@ -63,6 +63,13 @@ export const GetCurrentUser =  () => async (dispatch, getState) => {
   return currentUser
 }
 
+export const GetCards = () => () => {
+const {
+  userReducer: {peopleCards}
+} = getState()
+  return peopleCards
+}
+
 
 
 export const LogUserIn = () => async (dispatch, getState) => {
@@ -130,13 +137,17 @@ export const GetUserCards =  () => async (dispatch, getState) =>{
       collection: "Users",
       limit: 6
     })
-
+    var cardsArray = []
     querySnapshot.forEach(doc => {
       let data = doc.data()
-      dispatch(SetPeopleCard(data))
+      cardsArray.push(data)
     });
+    dispatch(SetPeopleCard(cardsArray))
 
   }catch(e){
     console.log(e, "problem getting user cards")
   }
 }
+
+
+

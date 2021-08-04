@@ -10,7 +10,9 @@ export default {
     profileData: {
       userHeight: null,
       education: null,
-      religion: null
+      religion: null,
+      likes: [],
+      dislikes: []
     }
   }
 };

@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { SET_FIRST_NAME, SET_LAST_NAME, SET_AGE, SET_PHONE, SET_EMAIL, SET_SEX, SET_USER_HEIGHT, SET_EDUCATION, SET_RELIGION, SET_PASSWORD } from './types';
+import { SET_FIRST_NAME, SET_LAST_NAME, SET_AGE, SET_PHONE, SET_EMAIL, SET_SEX, SET_USER_HEIGHT, SET_EDUCATION, SET_RELIGION, SET_PASSWORD, SET_LIKES, SET_DISLIKES } from './types';
 export default ((state = initialState, {
   type,
   payload
@@ -87,6 +87,28 @@ export default ((state = initialState, {
           newUser: { ...state.newUser,
             profileData: { ...state.newUser.profileData,
               religion: payload
+            }
+          }
+        };
+      }
+
+    case SET_LIKES:
+      {
+        return { ...state,
+          newUser: { ...state.newUser,
+            profileData: { ...state.newUser.profileData,
+              likes: payload
+            }
+          }
+        };
+      }
+
+    case SET_DISLIKES:
+      {
+        return { ...state,
+          newUser: { ...state.newUser,
+            profileData: { ...state.newUser.profileData,
+              dislikes: payload
             }
           }
         };
