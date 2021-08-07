@@ -11,6 +11,14 @@ import {
     SET_RELIGION,
     SET_ETHNICITY,
     SET_PASSWORD,
+    SET_HOMETOWN,
+    SET_FAMILY,
+    SET_POLITICS,
+    SET_FUTURE,
+    SET_SUBSTANCES,
+    SET_MEDIA,
+    SET_DESCRIPTION,
+    SET_PETS,
 } from './types'
 
 export const SetFirst = firstName => ({
@@ -52,4 +60,40 @@ export const SetFirst = firstName => ({
   export const SetPassword = password =>({
     type: SET_PASSWORD,
     payload: password,
+  })
+  export const SetDescription = description =>({
+    type: SET_DESCRIPTION,
+    payload: description,
+  })
+  export const SetHometown = hometown => ({
+    type: SET_HOMETOWN,
+    payload: hometown,
+  })
+  export const SetEthnicity = ethnicity =>({
+    type: SET_ETHNICITY,
+    payload: ethnicity,
+  })
+  export const SetFamily = family =>({
+    type: SET_FAMILY,
+    payload: family,
+  })
+  export const SetPolitics = politics =>({
+    type: SET_POLITICS,
+    payload: politics,
+  })
+  export const SetFuture = future => ({
+    type: SET_FUTURE,
+    payload: future,
+  })
+  export const SetSubstance = substance =>({
+    type: SET_SUBSTANCES,
+    payload: substance,
+  })
+  export const SetMedia = media =>({
+    type: SET_MEDIA,
+    payload: media,
+  })
+  export const SetPets = pets =>({
+    type: SET_PETS,
+    payload: pets,
   })
